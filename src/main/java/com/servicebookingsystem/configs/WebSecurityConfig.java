@@ -23,32 +23,6 @@ public class WebSecurityConfig {
     @Autowired
     private JwtRequestFilter requestFilter;
 
-
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        return http
-//                .csrf(csrf -> csrf.disable())
-//                .sessionManagement(session -> session
-//                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//                )
-//                .authorizeHttpRequests(auth -> auth
-//                          .requestMatchers(
-//                                "/api/v1/authenticate",
-//                                "/api/v1/company/sign-up",
-//                                "/api/v1/client/sign-up",
-//                                "/api/v1/ads",
-//                                "/api/v1/search/**",
-//                                "/error",
-//                                "/favicon.ico"
-//                        ).permitAll()
-//                        .anyRequest().authenticated()
-//                )
-//                .addFilterBefore(requestFilter, UsernamePasswordAuthenticationFilter.class)
-//                .build();
-//    }
-
-
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
@@ -59,12 +33,14 @@ public class WebSecurityConfig {
                                 "/api/v1/client/sign-up",
                                 "/api/v1/ads",
                                 "/api/v1/search/**",
+                                "/api/v1/client/search/**",
                                 "/error",                  // ✅ Allow access to error page
                                 "/favicon.ico",            // (optional)
                                 "/actuator/**"            // (optional for actuator monitoring)
 
                         ).permitAll()
                         .requestMatchers("/api/v1/company/ad/**", "/api/v1/company/ads/**").permitAll() //hasAuthority("ROLE_COMPANY")
+                        .requestMatchers("/api/v1/client/ad/**", "/api/v1/client/ads/**").permitAll()
 
                         .requestMatchers("/api/**").authenticated()
                 )
