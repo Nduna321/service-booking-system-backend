@@ -34,6 +34,10 @@ public class WebSecurityConfig {
                                 "/api/v1/ads",
                                 "/api/v1/search/**",
                                 "/api/v1/client/search/**",
+                                "/api/v1/client/book-service/**",
+                                "/api/v1/client/my-bookings/**",
+                                "/api/v1/company/bookings/**",
+                                "/api/v1/company/booking/**",
                                 "/error",                  // ✅ Allow access to error page
                                 "/favicon.ico",            // (optional)
                                 "/actuator/**"            // (optional for actuator monitoring)
