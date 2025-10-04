@@ -21,7 +21,7 @@ import jakarta.servlet.Filter;
 public class SimpleCorsFilter implements Filter {
 
    // @Value("${app.client.url:http://localhost:4200}")
-    @Value("${app.client.url:https://myfrontend.com}")
+    @Value("${app.client.url:https://service-booking-system-clde0ockp-lindoes.vercel.app}")
 
     private String clientAppUrl;
 
