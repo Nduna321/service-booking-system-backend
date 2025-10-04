@@ -49,13 +49,39 @@ public ResponseEntity<?> changeBookingStatus(@PathVariable Long bookingId, @Path
         return ResponseEntity.notFound().build();
 }
 
+    @GetMapping("/ad/{adId}")
+    public ResponseEntity<AdDTO> getAdById(@PathVariable Long adId) {
+        AdDTO ad = companyService.getAdById(adId); // implement in service
+        if (ad != null) {
+            return ResponseEntity.ok(ad);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/ad/{adId}")
+    public ResponseEntity<?> deleteAd(@PathVariable Long adId) {
+        boolean deleted = companyService.deleteAdById(adId); // implement in service
+        if (deleted) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+    @PutMapping("/ad/{adId}")
+    public ResponseEntity<?> updateAd(@PathVariable Long adId, @ModelAttribute AdDTO adDTO) {
+        boolean updated = companyService.updateAd(adId, adDTO);
+        if (updated) {
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+
+
 }
-
-
-
-
-
-
 
 
 

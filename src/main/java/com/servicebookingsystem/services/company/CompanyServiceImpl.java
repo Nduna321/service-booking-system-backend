@@ -76,15 +76,50 @@ public class CompanyServiceImpl implements CompanyService {
         return false;
     }
 
+    @Override
+    public AdDTO getAdById(Long adId) {
+        Optional<Ad> optionalAd = adRepository.findById(adId);
+        if (optionalAd.isPresent()) {
+            return optionalAd.get().getAdDto();  // Assuming your Ad entity has getAdDto() to convert to DTO
+        }
+        return null; // or throw an exception if you prefer
+    }
+
+    @Override
+    public boolean deleteAdById(Long adId) {
+        Optional<Ad> optionalAd = adRepository.findById(adId);
+        if (optionalAd.isPresent()) {
+            adRepository.delete(optionalAd.get());
+            return true; // successfully deleted
+        }
+        return false; // ad not found
+    }
+
+    @Override
+    public boolean updateAd(Long adId, AdDTO adDTO) {
+        Optional<Ad> optionalAd = adRepository.findById(adId);
+        if (optionalAd.isPresent()) {
+            Ad existingAd = optionalAd.get();
+
+            existingAd.setServiceName(adDTO.getServiceName());
+            existingAd.setDescription(adDTO.getDescription());
+            if (adDTO.getImg() != null && !adDTO.getImg().isEmpty()) {
+                try {
+                    existingAd.setImg(adDTO.getImg().getBytes());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return false; // fail if image can't be processed
+                }
+            }
+            existingAd.setPrice(adDTO.getPrice());
+
+            adRepository.save(existingAd);
+            return true;
+        }
+        return false;
+    }
+
 }
-
-
-
-
-
-
-
-
 
 
 

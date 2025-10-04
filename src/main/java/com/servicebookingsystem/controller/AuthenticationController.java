@@ -102,41 +102,4 @@ public class AuthenticationController {
         return ResponseEntity.ok(responseBody.toString());
     }
 
-
-//
-//    @PostMapping("/authenticate")
-//    public void createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest,
-//                                          HttpServletResponse response) throws IOException, JSONException, java.io.IOException {
-//
-//
-//        try {
-//            authenticationManager.authenticate(
-//                    new UsernamePasswordAuthenticationToken(
-//                    authenticationRequest.getUsername(), authenticationRequest.getPassword()
-//            )
-//            );
-//        } catch (BadCredentialsException e){
-//            throw new BadCredentialsException("Incorrect username or password", e);
-//
-//        }
-//
-//        final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
-//
-//        final  String jwt = jwtUtil.generateToken(userDetails.getUsername());
-//        User user = userRepository.findFirstByEmail(authenticationRequest.getUsername());
-//
-//        response.getWriter().write(new JSONObject()
-//                .put("userId", user.getId())
-//                .put("role", user.getRole())
-//                .toString()
-//        );
-//
-//        response.addHeader("Access-Control-Expose-Headers", "Authorization");
-//        response.addHeader("Access-Control-Allow-Headers", "Authorization" +
-//                "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept, X-Custom-header");
-//
-//        response.addHeader(HEADER_STRING, TOKEN_PREFIX + " " + jwt);
-//
-//    }
-
 }
