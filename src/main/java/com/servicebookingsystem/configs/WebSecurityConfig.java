@@ -36,6 +36,7 @@ public class WebSecurityConfig {
                                 "/api/v1/client/search/**",
                                 "/api/v1/client/book-service/**",
                                 "/api/v1/client/my-bookings/**",
+                                "/api/v1/client/review/**",
                                 "/api/v1/company/bookings/**",
                                 "/api/v1/company/booking/**",
                                 "/error",                  // ✅ Allow access to error page
