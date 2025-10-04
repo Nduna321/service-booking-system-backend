@@ -20,7 +20,9 @@ import jakarta.servlet.Filter;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class SimpleCorsFilter implements Filter {
 
-    @Value("${app.client.url:http://localhost:4200}")
+   // @Value("${app.client.url:http://localhost:4200}")
+    @Value("${app.client.url:https://myfrontend.com}")
+
     private String clientAppUrl;
 
     public SimpleCorsFilter() {
