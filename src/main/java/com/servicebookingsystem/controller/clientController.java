@@ -23,6 +23,13 @@ public class clientController {
     @Autowired
     private ClientService clientService;
 
+
+//    @GetMapping("/ads")
+//    public ResponseEntity<?> getAllAds(){
+//        return ResponseEntity.ok(clientService.getAllAds());
+//    }
+
+
     @GetMapping("/ads")
     public ResponseEntity<?> getAllAds() {
         try {
@@ -38,10 +45,6 @@ public class clientController {
     }
 
 
-//    @GetMapping("/ads")
-//    public ResponseEntity<?> getAllAds(){
-//        return ResponseEntity.ok(clientService.getAllAds());
-//    }
 
 
     @GetMapping("/search/{name}")
