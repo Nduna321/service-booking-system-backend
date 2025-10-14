@@ -17,7 +17,7 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/client")
-//@CrossOrigin
+@CrossOrigin
 public class clientController {
 
     @Autowired

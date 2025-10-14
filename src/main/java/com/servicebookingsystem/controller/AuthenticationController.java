@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.*;
 //@CrossOrigin(origins = "http://localhost:4200")
 //@CrossOrigin(origins = "https://service-booking-system-frontend.vercel.app")
 //@CrossOrigin(origins = {"https://myfrontend.com", "http://localhost:4200"})
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1")
 @RequiredArgsConstructor
