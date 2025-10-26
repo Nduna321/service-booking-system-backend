@@ -37,7 +37,7 @@ public class CompanyServiceImpl implements CompanyService {
             Ad ad = new Ad();
             ad.setServiceName(adDTO.getServiceName());
             ad.setDescription(adDTO.getDescription());
-            ad.setImg(adDTO.getImg().getBytes());
+            ad.setImg(adDTO.getImg().getBytes(),adDTO.getId());
             ad.setPrice(adDTO.getPrice());
             ad.setUser(optionalUser.get());
 
@@ -105,7 +105,7 @@ public class CompanyServiceImpl implements CompanyService {
             existingAd.setDescription(adDTO.getDescription());
             if (adDTO.getImg() != null && !adDTO.getImg().isEmpty()) {
                 try {
-                    existingAd.setImg(adDTO.getImg().getBytes());
+                    existingAd.setImg(adDTO.getImg().getBytes(),adId);
                 } catch (IOException e) {
                     e.printStackTrace();
                     return false; // fail if image can't be processed
